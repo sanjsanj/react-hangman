@@ -1,11 +1,24 @@
 export const types = {
-  RESET: "WORD_RESET",
-}
+  REQUEST: 'REQUEST',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+};
 
 export const actions = {
-  reset() {
+  fetchRequest() {
     return {
-      type: types.RESET,
-    }
-  }
-}
+      type: types.REQUEST,
+    };
+  },
+  fetchSuccess(payload) {
+    return {
+      type: types.SUCCESS,
+      payload,
+    };
+  },
+  fetchErro() {
+    return {
+      type: types.ERROR,
+    };
+  },
+};

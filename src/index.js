@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-import { Provider } from 'react-redux';
 import store from './store';
+// import { types as wordTypes } from './actions/word';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,3 +16,5 @@ ReactDOM.render(
 );
 
 registerServiceWorker();
+
+// store.dispatch({ type: wordTypes.RESET });
