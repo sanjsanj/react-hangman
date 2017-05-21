@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './App.css';
 import Word from './components/word';
+import Keyboard from './components/keyboard';
 import { actions as wordActions } from './actions/word';
 
 const App = ({ word, fetchRequest }) => (
   <div className="App">
         Hangman
         <Word word={word} fetchRequest={fetchRequest} />
+    <Keyboard />
   </div>
 );
 
