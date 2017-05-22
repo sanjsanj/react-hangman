@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import word from './reducers/word';
+import game from './reducers/game';
 
 const reducers = combineReducers({
-  word,
+  game,
 });
 
 export default createStore(reducers, applyMiddleware(thunk));
