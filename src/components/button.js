@@ -7,10 +7,12 @@ const Button = ({ text, action }) => (
 
 Button.propTypes = {
   text: PropTypes.string,
+  action: PropTypes.func,
 };
 
 Button.defaultProps = {
   text: '',
+  action: () => {},
 };
 
 export default Button;
