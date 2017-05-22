@@ -47,6 +47,7 @@ export default (state = initialState, action) => {
           ...state,
           letters: state.letters.filter(letter => letter !== action.letter),
           tries: state.tries - 1,
+          status: state.tries === 1 ? status.LOST : status.PLAYING,
         };
       }
       return state;

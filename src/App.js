@@ -12,7 +12,7 @@ const App = ({ game, newGame, tryLetter }) => (
     Hangman
     <Word word={game.answer} newGame={newGame} />
     <Button text="RESET" action={newGame} />
-    <Keyboard action={tryLetter} letters={game.letters} />
+    <Keyboard action={tryLetter} letters={game.letters} status={game.status} />
   </div>
 );
 
