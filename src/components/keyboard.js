@@ -6,7 +6,7 @@ const Keyboard = ({ action, letters, status }) => {
   const keyboard = letters.map(letter => (
     <Button key={letter} text={letter} action={() => action(letter)} />
   ));
-  if (status === 3) {
+  if (status === 'PLAYING') {
     return (
       <div>
         {keyboard}
@@ -22,8 +22,8 @@ const Keyboard = ({ action, letters, status }) => {
 
 Keyboard.propTypes = {
   action: PropTypes.func.isRequired,
-  letters: PropTypes.array.isRequired,
-  status: PropTypes.number.isRequired,
+  letters: PropTypes.arrayOf(PropTypes.string).isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 export default Keyboard;

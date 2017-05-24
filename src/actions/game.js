@@ -5,6 +5,7 @@ export const types = {
   NEW_GAME_SUCCESS: 'NEW_GAME_SUCCESS',
   NEW_GAME_ERROR: 'NEW_GAME_ERROR',
   TRY_LETTER: 'TRY_LETTER',
+  CHECK_GAME_STATE: 'CHECK_GAME_STATE',
 };
 
 export const actions = {
@@ -37,9 +38,21 @@ export const actions = {
     };
   },
   tryLetter(letter) {
+    // return (dispatch) => {
+    //   dispatch(actions.checkGameState());
+    //   return {
+    //     type: types.TRY_LETTER,
+    //     letter,
+    //   };
+    // };
     return {
       type: types.TRY_LETTER,
       letter,
+    };
+  },
+  checkGameState() {
+    return {
+      type: types.CHECK_GAME_STATE,
     };
   },
 };

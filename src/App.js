@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './App.css';
@@ -7,17 +7,37 @@ import Keyboard from './components/keyboard';
 import Button from './components/button';
 import { actions as gameActions } from './actions/game';
 
-const App = ({ game, newGame, tryLetter }) => (
+/* const App = ({ game, newGame, tryLetter }) => (
   <div className="App">
     Hangman
     <Word word={game.answer} newGame={newGame} />
     <Button text="RESET" action={newGame} />
     <Keyboard action={tryLetter} letters={game.letters} status={game.status} />
   </div>
-);
+);*/
+
+export class App extends Component {
+  render() {
+    const { game, newGame, tryLetter } = this.props;
+    return (
+      <div className="App">
+        Hangman
+        <Word word={game.answer} newGame={newGame} />
+        <Button text="RESET" action={newGame} />
+        <Keyboard action={tryLetter} letters={game.letters} status={game.status} />
+      </div>
+    );
+  }
+}
 
 App.propTypes = {
-  game: PropTypes.object.isRequired,
+  game: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    word: PropTypes.string.isRequired,
+    answer: PropTypes.array.isRequired,
+    letters: PropTypes.array.isRequired,
+    tries: PropTypes.number.isRequired,
+  }).isRequired,
   newGame: PropTypes.func.isRequired,
   tryLetter: PropTypes.func.isRequired,
 };
@@ -34,5 +54,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch(gameActions.tryLetter(letter));
   },
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

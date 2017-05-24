@@ -40,6 +40,7 @@ export default (state = initialState, action) => {
               }
               return letter;
             }),
+            // status: state.answer.indexOf('_') < 0 ? status.WON : status.PLAYING,
           };
         }
         // failure
@@ -47,10 +48,15 @@ export default (state = initialState, action) => {
           ...state,
           letters: state.letters.filter(letter => letter !== action.letter),
           tries: state.tries - 1,
-          status: state.tries === 1 ? status.LOST : status.PLAYING,
+          // status: state.tries === 1 ? status.LOST : status.PLAYING,
         };
       }
       return state;
+    case types.CHECK_GAME_STATE:
+      return {
+        ...state,
+        status: ((state.answer.indexOf('_') < 0) || (state.tries === 0)) ? status.WON : status.PLAYING,
+      };
     default:
       return state;
   }
