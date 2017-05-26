@@ -9,6 +9,10 @@ import Button from './components/button';
 import { actions as gameActions } from './actions/game';
 
 export class App extends Component {
+  componentWillMount() {
+    this.props.newGame();
+  }
+
   render() {
     const { game, newGame, tryLetter } = this.props;
     return (
