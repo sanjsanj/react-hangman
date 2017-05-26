@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import './App.css';
 import Word from './components/word';
 import Keyboard from './components/keyboard';
@@ -11,7 +12,7 @@ export class App extends Component {
   render() {
     const { game, newGame, tryLetter } = this.props;
     return (
-      <div className="App">
+      <div className="app">
         Hangman
         <Word word={game.answer} newGame={newGame} />
         <Button text="RESET" action={newGame} />

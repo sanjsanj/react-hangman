@@ -1,12 +1,12 @@
-import { types } from '../actions/keyboard';
+// import { types } from '../actions/keyboard';
 
-const initialState = {};
+// const initialState = {};
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case types.CLICKED:
-      return action;
-    default:
-      return state;
-  }
-};
+// export default (state = initialState, action) => {
+//   switch (action.type) {
+//     case types.CLICKED:
+//       return action;
+//     default:
+//       return state;
+//   }
+// };

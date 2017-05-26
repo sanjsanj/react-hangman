@@ -6,7 +6,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import store from './store';
-// import { types as wordTypes } from './actions/word';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -16,5 +15,3 @@ ReactDOM.render(
 );
 
 registerServiceWorker();
-
-// store.dispatch({ type: wordTypes.RESET });
