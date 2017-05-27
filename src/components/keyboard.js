@@ -4,7 +4,12 @@ import Button from './button';
 
 const Keyboard = ({ action, letters, status, word }) => {
   const keyboard = letters.map(letter => (
-    <Button className="btn btn-primary btn-keyboard" key={letter} text={letter} action={() => action(letter)} />
+    <Button
+      className="btn btn-primary btn-keyboard"
+      key={letter}
+      text={letter}
+      action={() => action(letter)}
+    />
   ));
 
   switch (status) {
