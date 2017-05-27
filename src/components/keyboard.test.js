@@ -18,13 +18,13 @@ describe('Keyboard', () => {
   it('renders the right text when the status is WON', () => {
     const status = Constants.WON;
     const component = shallow(<Keyboard action={fn} letters={letters} status={status} word="ballers" />);
-    expect(component.text()).toEqual('You won, play again');
+    expect(component.text()).toEqual('You won');
   });
 
   it('renders the right text when the status is LOST', () => {
     const status = Constants.LOST;
     const component = shallow(<Keyboard action={fn} letters={letters} status={status} word="ballers" />);
-    expect(component.text()).toEqual('The answer was \"ballers\".Play again.');
+    expect(component.text()).toEqual('The answer was \"ballers\"');
   });
 
   it('renders the right text when the status is LOADING', () => {
@@ -36,6 +36,6 @@ describe('Keyboard', () => {
   it('renders the right text when the status is not expected', () => {
     const status = '';
     const component = shallow(<Keyboard action={fn} letters={letters} status={status} word="ballers" />);
-    expect(component.text()).toEqual('Oops, something went wrong.  Did not expect that game status.');
+    expect(component.text()).toEqual(`Oops, something went wrong.  Did not expect ${status} status`);
   });
 });
