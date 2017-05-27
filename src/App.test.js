@@ -12,7 +12,8 @@ describe('App', () => {
       word: '',
       answer: [],
       letters: alphabet,
-      tries: 10,
+      tries: 6,
+      imageSrc: 'www.image.com/1.png',
     };
 
     const div = document.createElement('div');

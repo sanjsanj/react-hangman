@@ -24,11 +24,13 @@ const getGameStatus = (state) => {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+
     case types.NEW_GAME_REQUEST:
       return {
         ...state,
         status: status.LOADING,
       };
+
     case types.NEW_GAME_SUCCESS:
       return {
         ...state,
@@ -39,6 +41,7 @@ export default (state = initialState, action) => {
         tries: initialState.tries,
         imageSrc: initialState.imageSrc,
       };
+
     case types.TRY_LETTER:
       if (state.letters.indexOf(action.letter) > -1) {
         if (state.word.indexOf(action.letter) > -1) {
@@ -62,12 +65,14 @@ export default (state = initialState, action) => {
         };
       }
       return state;
+
     case types.CHECK_GAME_STATE:
       return {
         ...state,
         imageSrc: `http://www.writteninpencil.de/Projekte/Hangman/hangman${getImageNumber(state.tries)}.png`,
         status: getGameStatus(state),
       };
+
     default:
       return state;
   }

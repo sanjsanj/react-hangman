@@ -26,10 +26,16 @@ const Keyboard = ({ action, letters, status }) => {
           Please wait...
         </div>
       );
-    default:
+    case 'PLAYING':
       return (
         <div>
           {keyboard}
+        </div>
+      );
+    default:
+      return (
+        <div>
+          Oops, something went wrong.  Did not expect that game status.
         </div>
       );
   }
