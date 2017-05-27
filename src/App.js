@@ -8,6 +8,7 @@ import Keyboard from './components/keyboard';
 import Button from './components/button';
 import Image from './components/image';
 import { actions as gameActions } from './actions/game';
+import STATUS from './constants/status';
 
 export class App extends Component {
   componentWillMount() {
@@ -16,12 +17,14 @@ export class App extends Component {
 
   render() {
     const { game, newGame, tryLetter } = this.props;
+    const resetButtonText = game.status === STATUS.PLAYING ? 'Reset' : 'Play Again';
+
     return (
       <div className="app">
         <h1>Hangman</h1>
         <Image imageSrc={game.imageSrc} />
         <Word word={game.answer} newGame={newGame} />
-        <Button text="RESET" action={newGame} />
+        <Button className="btn btn-warning btn-reset" text={resetButtonText} action={newGame} />
         <Keyboard action={tryLetter} letters={game.letters} status={game.status} word={game.word} />
       </div>
     );

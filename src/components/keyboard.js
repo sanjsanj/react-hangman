@@ -4,21 +4,20 @@ import Button from './button';
 
 const Keyboard = ({ action, letters, status, word }) => {
   const keyboard = letters.map(letter => (
-    <Button key={letter} text={letter} action={() => action(letter)} />
+    <Button className="btn btn-primary btn-keyboard" key={letter} text={letter} action={() => action(letter)} />
   ));
 
   switch (status) {
     case 'WON':
       return (
         <div>
-          <p>You won, play again</p>
+          <h2>You won</h2>
         </div>
       );
     case 'LOST':
       return (
         <div>
-          <p>The answer was "{word}".</p>
-          <p>Play again.</p>
+          <h2>The answer was "{word}"</h2>
         </div>
       );
     case 'LOADING':
@@ -36,7 +35,7 @@ const Keyboard = ({ action, letters, status, word }) => {
     default:
       return (
         <div>
-          <p>Oops, something went wrong.  Did not expect that game status.</p>
+          <p>Oops, something went wrong.  Did not expect {status} status</p>
         </div>
       );
   }

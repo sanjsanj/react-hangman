@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Word = ({ word }) => (
   <div>
     {word.map((letter, index) => (
-      <button key={index}>{letter}</button>))}
+      <button className="btn btn-default btn-word" key={index}>{letter}</button>))}
   </div>
   );
 

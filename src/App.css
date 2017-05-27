@@ -1,3 +1,18 @@
 .app {
   text-align: center;
 }
+
+.btn {
+  margin: 5px;
+  min-width: 3em;
+}
+
+.btn-word {
+  pointer-events: none;
+}
+
+.btn-keyboard {}
+
+.btn-reset {
+  
+}
