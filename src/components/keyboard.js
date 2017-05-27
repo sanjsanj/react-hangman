@@ -6,18 +6,33 @@ const Keyboard = ({ action, letters, status }) => {
   const keyboard = letters.map(letter => (
     <Button key={letter} text={letter} action={() => action(letter)} />
   ));
-  if (status === 'PLAYING') {
-    return (
-      <div>
-        {keyboard}
-      </div>
-    );
+
+  switch (status) {
+    case 'WON':
+      return (
+        <div>
+          You won, play again
+        </div>
+      );
+    case 'LOST':
+      return (
+        <div>
+          You lost, play again
+        </div>
+      );
+    case 'LOADING':
+      return (
+        <div>
+          Please wait...
+        </div>
+      );
+    default:
+      return (
+        <div>
+          {keyboard}
+        </div>
+      );
   }
-  return (
-    <div>
-        Play again
-    </div>
-  );
 };
 
 Keyboard.propTypes = {

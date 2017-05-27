@@ -12,9 +12,15 @@ const initialState = {
   imageSrc: 'http://www.writteninpencil.de/Projekte/Hangman/hangman0.png',
 };
 
-const getImageSrc = triesLeft => 6 - triesLeft;
+const getImageNumber = triesLeft => initialState.tries - triesLeft;
 
-const formatWord = word => word.toLowerCase().replace(/-/, '');
+const formatWord = word => word.toLowerCase().replace(/-/g, '');
+
+const getGameStatus = (state) => {
+  if (state.answer.indexOf('_') < 0) return status.WON;
+  if (state.tries === 0) return status.LOST;
+  return status.PLAYING;
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -59,8 +65,8 @@ export default (state = initialState, action) => {
     case types.CHECK_GAME_STATE:
       return {
         ...state,
-        imageSrc: `http://www.writteninpencil.de/Projekte/Hangman/hangman${getImageSrc(state.tries)}.png`,
-        status: ((state.answer.indexOf('_') < 0) || (state.tries === 0)) ? status.WON : status.PLAYING,
+        imageSrc: `http://www.writteninpencil.de/Projekte/Hangman/hangman${getImageNumber(state.tries)}.png`,
+        status: getGameStatus(state),
       };
     default:
       return state;
