@@ -18,7 +18,7 @@ export class App extends Component {
     const { game, newGame, tryLetter } = this.props;
     return (
       <div className="app">
-        Hangman
+        <h1>Hangman</h1>
         <Image imageSrc={game.imageSrc} />
         <Word word={game.answer} newGame={newGame} />
         <Button text="RESET" action={newGame} />

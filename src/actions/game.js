@@ -38,16 +38,14 @@ export const actions = {
     };
   },
   tryLetter(letter) {
-    // return (dispatch) => {
-    //   dispatch(actions.checkGameState());
-    //   return {
-    //     type: types.TRY_LETTER,
-    //     letter,
-    //   };
-    // };
-    return {
-      type: types.TRY_LETTER,
-      letter,
+    return (dispatch) => {
+      dispatch({
+        type: types.TRY_LETTER,
+        letter,
+      });
+      dispatch({
+        type: types.CHECK_GAME_STATE,
+      });
     };
   },
   checkGameState() {
