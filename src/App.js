@@ -6,6 +6,7 @@ import './App.css';
 import Word from './components/word';
 import Keyboard from './components/keyboard';
 import Button from './components/button';
+import Image from './components/image';
 import { actions as gameActions } from './actions/game';
 
 export class App extends Component {
@@ -18,6 +19,7 @@ export class App extends Component {
     return (
       <div className="app">
         Hangman
+        <Image imageSrc={game.imageSrc} />
         <Word word={game.answer} newGame={newGame} />
         <Button text="RESET" action={newGame} />
         <Keyboard action={tryLetter} letters={game.letters} status={game.status} />
@@ -33,6 +35,7 @@ App.propTypes = {
     answer: PropTypes.array.isRequired,
     letters: PropTypes.array.isRequired,
     tries: PropTypes.number.isRequired,
+    imageSrc: PropTypes.string.isRequired,
   }).isRequired,
   newGame: PropTypes.func.isRequired,
   tryLetter: PropTypes.func.isRequired,
