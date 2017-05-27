@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './button';
 
-const Keyboard = ({ action, letters, status }) => {
+const Keyboard = ({ action, letters, status, word }) => {
   const keyboard = letters.map(letter => (
     <Button key={letter} text={letter} action={() => action(letter)} />
   ));
@@ -11,19 +11,20 @@ const Keyboard = ({ action, letters, status }) => {
     case 'WON':
       return (
         <div>
-          You won, play again
+          <p>You won, play again</p>
         </div>
       );
     case 'LOST':
       return (
         <div>
-          You lost, play again
+          <p>The answer was "{word}".</p>
+          <p>Play again.</p>
         </div>
       );
     case 'LOADING':
       return (
         <div>
-          Please wait...
+          <p>Please wait...</p>
         </div>
       );
     case 'PLAYING':
@@ -35,7 +36,7 @@ const Keyboard = ({ action, letters, status }) => {
     default:
       return (
         <div>
-          Oops, something went wrong.  Did not expect that game status.
+          <p>Oops, something went wrong.  Did not expect that game status.</p>
         </div>
       );
   }
@@ -45,6 +46,7 @@ Keyboard.propTypes = {
   action: PropTypes.func.isRequired,
   letters: PropTypes.arrayOf(PropTypes.string).isRequired,
   status: PropTypes.string.isRequired,
+  word: PropTypes.string.isRequired,
 };
 
 export default Keyboard;

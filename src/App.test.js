@@ -8,12 +8,12 @@ describe('App', () => {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
     const initialState = {
-      status: 'LOADING',
+      status: '',
       word: '',
       answer: [],
       letters: alphabet,
       tries: 6,
-      imageSrc: 'www.image.com/1.png',
+      imageSrc: '',
     };
 
     const div = document.createElement('div');

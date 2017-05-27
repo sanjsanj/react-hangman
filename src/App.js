@@ -22,7 +22,7 @@ export class App extends Component {
         <Image imageSrc={game.imageSrc} />
         <Word word={game.answer} newGame={newGame} />
         <Button text="RESET" action={newGame} />
-        <Keyboard action={tryLetter} letters={game.letters} status={game.status} />
+        <Keyboard action={tryLetter} letters={game.letters} status={game.status} word={game.word} />
       </div>
     );
   }
